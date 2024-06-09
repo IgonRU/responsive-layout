@@ -1,0 +1,60 @@
+@import "css3-flexbox";
+@import "css3-mixins";
+
+$desktop-max-width: 1250px;
+$html-font-size: 14px;
+
+$body-background-color: #ffffff;
+
+// Gray
+$color-gray-dark: #616580;
+$color-gray-background1: #f7f7f5;
+$color-gray1: #cecece;
+
+$text-white: #FFFFFF;
+$text-gray: $color-gray-dark;
+$text-black: $color-gray-dark;
+
+html {
+  font-size: $html-font-size;
+  color: $text-black;
+  box-sizing: border-box;
+}
+
+body {
+  @include css3-flex-display();
+  @include css3-flex-direction(column);
+  @include css3-justify-content(stretch);
+  @include css3-align-items(stretch);
+  height: 100vh;
+  width: 100vw;
+  margin: 0;
+  background-color: $body-background-color;
+}
+
+app-root {
+  @include css3-flex-display();
+  @include css3-flex-direction(column);
+  @include css3-flex(1);
+}
+
+igon-responsive-layout {
+  @include css3-flex-display(column);
+  @include css3-flex(1);
+
+  section.responsive-layout-header,
+  section.responsive-layout-body,
+  section.responsive-layout-footer {
+    @include css3-flex-display();
+    @include css3-justify-content(center);
+  }
+
+  section.responsive-layout-body {
+    @include css3-flex(1);
+  }
+
+  .container-desktop {
+    width: $desktop-max-width;
+    //overflow: hidden;
+  }
+}

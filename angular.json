@@ -97,6 +97,39 @@
           }
         }
       }
+    },
+    "responsive-layout": {
+      "projectType": "library",
+      "root": "projects/responsive-layout",
+      "sourceRoot": "projects/responsive-layout/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/responsive-layout/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/responsive-layout/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/responsive-layout/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "tsConfig": "projects/responsive-layout/tsconfig.spec.json",
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ]
+          }
+        }
+      }
     }
   }
 }
