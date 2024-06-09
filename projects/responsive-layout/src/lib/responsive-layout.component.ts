@@ -1,5 +1,6 @@
-import {Component, Renderer2, ViewEncapsulation} from '@angular/core';
+import {Component, Inject, Renderer2, ViewEncapsulation} from '@angular/core';
 import {IgonResponsiveLayoutService} from "./responsive-layout.service";
+import {DOCUMENT} from "@angular/common";
 
 @Component({
   selector: 'igon-responsive-layout',
@@ -16,7 +17,8 @@ export class IgonResponsiveLayoutComponent {
 
   debugMode = true;
 
-  constructor(public responsiveService: IgonResponsiveLayoutService,
+  constructor(@Inject(DOCUMENT) private document: Document,
+              public responsiveService: IgonResponsiveLayoutService,
               private renderer: Renderer2) {
     if (this.debugMode) console.log('AppComponent constructor called!');
     this.setBodyMediaClass(this.responsiveService.currentMediaModeName());
@@ -25,8 +27,8 @@ export class IgonResponsiveLayoutComponent {
 
   setBodyMediaClass(mediaModeName: string): void {
     if (this.debugMode) console.log('AppComponent setBodyMediaClass: ', mediaModeName);
-    this.renderer.removeClass(document.body, 'media-' + this.mediaModeName);
+    this.renderer.removeClass(this.document.body, 'media-' + this.mediaModeName);
     this.mediaModeName = mediaModeName;
-    this.renderer.addClass(document.body, 'media-' + this.mediaModeName);
+    this.renderer.addClass(this.document.body, 'media-' + this.mediaModeName);
   }
 }
