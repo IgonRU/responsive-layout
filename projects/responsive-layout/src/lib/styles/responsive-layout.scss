@@ -45,16 +45,12 @@ igon-responsive-layout {
   section.responsive-layout-header,
   section.responsive-layout-body,
   section.responsive-layout-footer {
-    @include css3-flex-display();
-    @include css3-justify-content(center);
+    @include css3-flex-display(column);
+    @include css3-justify-content(flex-start);
+    @include css3-align-items(stretch);
   }
 
   section.responsive-layout-body {
     @include css3-flex(1);
-  }
-
-  .container-desktop {
-    width: $desktop-max-width;
-    //overflow: hidden;
   }
 }
