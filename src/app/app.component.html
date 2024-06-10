@@ -1,12 +1,22 @@
-<igon-responsive-layout>
+<igon-responsive-layout [mode]="layoutMode">
 
   <app-page-header class="layout-header"></app-page-header>
 
   <section class="body">
     <h1>Body</h1>
     <h3>Media mode is {{ currentMediaMode }}</h3>
+    <div class="layout-mode-select">
+      <select (change)="layoutModeChanged($event)">
+        <option value="full">Full Layout</option>
+        <option value="card">Card Layout</option>
+      </select>
+    </div>
   </section>
 
   <app-page-footer class="layout-footer"></app-page-footer>
+
+  <div class="some-more-content">
+    <p>Here's some other content not projected to certain blocks in igon-responsive-layout component by corresponding .layout-header and .layout-footer classes</p>
+  </div>
 
 </igon-responsive-layout>

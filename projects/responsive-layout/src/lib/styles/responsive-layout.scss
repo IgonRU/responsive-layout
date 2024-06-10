@@ -53,4 +53,14 @@ igon-responsive-layout {
   section.responsive-layout-body {
     @include css3-flex(1);
   }
+
+  &.layout-card {
+    @include css3-flex-display();
+    @include css3-justify-content(center);
+    @include css3-align-items(center);
+
+    .responsive-layout-body {
+      @include css3-justify-content(center);
+    }
+  }
 }
